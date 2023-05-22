@@ -1,0 +1,7 @@
+//Falco run-time Container Threat Detection: bash history deleted
+//cryptsus.com - We craft Cyber Security Solution
+FalcoContainerSecurity
+| where Activity == "Delete or rename shell history"
+| project-away TenantId, DeviceVendor, DeviceProduct, DeviceVersion, DeviceEventClassID, Message, AdditionalExtensions, SourceSystem, Type, outputfields, Computer
+| sort by TimeGenerated
+| where command contains_cs "bash_history"
