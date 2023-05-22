@@ -1,5 +1,5 @@
 //Falcosidekick Syslog CEF Falco run-time container threat detection parser
-//10-05-2023 by Jeroen van Kessel | cryptsus.com
+////Cryptsus.com - we craft cyber security solutions | 10-05-2023
 CommonSecurityLog
 | where DeviceVendor == "Falcosecurity"
 | parse-kv AdditionalExtensions as (
