@@ -1,0 +1,6 @@
+//Falco run-time Container Threat Detection: Netcat Reverse Shell connection detected
+//cryptsus.com - We craft Cyber Security Solutions 
+FalcoContainerSecurity
+| where Activity == "Netcat Remote Code Execution in Container"
+| project-away TenantId, DeviceVendor, DeviceProduct, DeviceVersion, DeviceEventClassID, Message, AdditionalExtensions, SourceSystem, Type, outputfields, parent, cmdline, Computer
+| sort by TimeGenerated
