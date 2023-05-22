@@ -3,15 +3,15 @@
 CommonSecurityLog
 | where DeviceVendor == "Falcosecurity"
 | parse-kv AdditionalExtensions as (
-	["user_loginuid"]:string,
+    ["user_loginuid"]:string,
     ["user"]:string,
     ["github-pull"]:string,
     ["-docker-config"]:string,
     ["bitbucket-pull"]:string,
-	["command"]:string,
+    ["command"]:string,
     ["file"]:string,
-	["parent"]:string,
-	["gparent"]:string,
+    ["parent"]:string,
+    ["gparent"]:string,
     ["program"]:string,
     ["pcmdline"]:string,
     ["process"]:string,
@@ -26,6 +26,6 @@ CommonSecurityLog
     ["container.image.repository"]:string,
     ["k8s.ns"]:string,
     ["k8s.pod"]:string,
-	["outputfields"]:string,
-	) with (pair_delimiter=';', kv_delimiter='=', greedy=true)
+    ["outputfields"]:string,
+    ) with (pair_delimiter=';', kv_delimiter='=', greedy=true)
 | extend k8s_cluster = tostring(split(Computer, '-falcosidekick')[0])
