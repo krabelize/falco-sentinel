@@ -1,0 +1,7 @@
+//Falco run-time Container Threat Detection: new SSH keys created with ssh-keygen
+//cryptsus.com - We craft Cyber Security Solutions
+FalcoContainerSecurity
+| where Activity == "Write below monitored dir"
+| where command contains_cs "ssh-keygen"
+| project-away TenantId, Activity, LogSeverity, AdditionalExtensions, Message, parent, DeviceVendor, DeviceProduct, DeviceVersion, DeviceEventClassID, SourceSystem, Type, outputfields, Computer
+| where command contains_cs "ssh-keygen"
