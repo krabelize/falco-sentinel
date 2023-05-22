@@ -1,0 +1,7 @@
+//Falco run-time Container Threat Detection: read /etc/shadow Linux password file
+//cryptsus.com - We craft Cyber Security Solution
+FalcoContainerSecurity
+| where Activity == "Read sensitive file untrusted"
+| where file contains_cs "/etc/shadow"
+| project-away TenantId, DeviceVendor, DeviceProduct, DeviceVersion, DeviceEventClassID, Message, AdditionalExtensions, SourceSystem, Type, outputfields, parent, cmdline, Computer
+| sort by TimeGenerated
